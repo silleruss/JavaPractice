@@ -12,7 +12,7 @@ public class BitmapTester {
 		a.lshift(4);
 		System.out.println(a); //110011110110101010100000
 
-		a.rshift(8);		   
+		a.rshift(8);   
 		System.out.println(a); //000000001100111101101010
 
 		a.cut(5, 12);

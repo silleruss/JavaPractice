@@ -175,7 +175,6 @@ public class MyBitmap implements Bitmap {
 
     @Override
     public int dotproduct(Bitmap val) {
-    	
     	int result = 0;
     	int temp = 0;
     	
