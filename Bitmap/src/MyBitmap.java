@@ -13,7 +13,6 @@ public class MyBitmap implements Bitmap {
 
     @Override
     public Bitmap or(Bitmap val) {
-    	
         int diff = this.bits.length - val.bitlength();
         char[] target = null;
 
