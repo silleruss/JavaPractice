@@ -1,134 +1,124 @@
 import java.util.*;
 
+class Node {
+    public char data;
+    public Node left, right;
+  
+    public Node(char item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+	private Node root;
+	static int preIndex = 0;
+	private String postString, levelString;
+	
+	public BinaryTree(String preorder, String inorder) {
+		postString = "";
+		levelString = "";
+		int len = preorder.length();
+		char[] pre = preorder.toCharArray();
+		char[] in = inorder.toCharArray();
+		root = buildTree(in, pre, 0, len-1); 
+	}
+	
+	public Node buildTree(char in[], char pre[], int instart, int inEnd) {
+		if (instart > inEnd) 
+			return null;
+		  	
+		Node tNode = new Node(pre[preIndex++]);
+		  
+		if (instart == inEnd)
+			return tNode;
+		
+		int inIndex = search(in, instart, inEnd, tNode.data);
+		tNode.left = buildTree(in, pre, instart, inIndex - 1);
+		tNode.right = buildTree(in, pre, inIndex + 1, inEnd);
+		
+		return tNode;
+	}
+	
+	public int search(char arr[], int start, int end, char value) {
+		int index;
+		
+		for (index = start; index <= end; index++) {
+			if (arr[index] == value)
+				return index;
+		}
+		
+		return index;
+	}
+	
+	public String postfix() {
+		Postorder(root);
+		return postString;
+	}
+	
+	public String Postorder(Node node) {
+		if (node != null) {
+			Postorder(node.left);
+			Postorder(node.right);
+			postString += Character.toString(node.data);
+		}
+		
+		return postString;
+	}
+	
+	public String levelfix() {
+		Levelorder(root);
+		return levelString;
+	}
+	
+	public String Levelorder(Node node) {
+  		Queue q = new LinkedList();
+  		q.add(node);
+  		
+  		while (!q.isEmpty()) {
+  			Node temp = (Node)q.poll();
+  			levelString += Character.toString(temp.data);
+  			
+  			if (temp.left != null) 
+  				q.add(temp.left);
+  			if (temp.right != null)
+  				q.add(temp.right);  			
+  		}
+  		
+  		return levelString;
+  	}
+}
+
 public class MyTree02 {
-	private BST bst;
-	 class BSTNode {
-	     BSTNode left, right;
-	     char data;
-
-	     public BSTNode() {
-	    	 left = null;
-	        right = null;
-	        data = 0;
-        }
-
-	     public BSTNode(char n) {
-	         left = null;
-	         right = null;
-	         data = n;
-	     }
- 
-	     public void setLeft(BSTNode n) { left = n; }
-
-	     public void setRight(BSTNode n) { right = n; }
-
-	     public BSTNode getLeft() { return left; }
-
-	     public BSTNode getRight() { return right; }
-
-	     public void setData(char d) { data = d; }
-
-	     public int getData() { return data; }     
-	 
-	 }
-	 
-	 class BST {
-		 private BSTNode root;
-		 private String output;
-		 
-		 public BST() {
-			 root = null;
-	     }
-
-		 public boolean isEmpty() {
-			 return root == null;
-	     }
-
-	     public void insert(char data) {
-	         root = insert(root, data);
-	     }
-
-	     private BSTNode insert(BSTNode node, char data) {
-	         if (node == null)
-	             node = new BSTNode(data);
-	         else {
-	             if (data <= node.getData())
-	                 node.left = insert(node.left, data);
-	             else
-	                 node.right = insert(node.right, data);
-	         }
-	         
-	        return node;
-	     }
-	     
-	     public void inorder() {
-	    	 inorder(root);
-	     }
-
-	     private void inorder(BSTNode r) {
-	         if (r != null) {
-	             inorder(r.getLeft());
-	             System.out.print(r.getData() +" ");
-	             inorder(r.getRight());
-	         }
-	     }
-
-	     public void preorder() {
-	         preorder(root);
-	     }
-
-	     private void preorder(BSTNode r) {
-	         if (r != null) {
-	             System.out.print(r.getData() +" ");
-	             preorder(r.getLeft());             
-	             preorder(r.getRight());
-	         }
-	     }
-
-	     public String postorder() {
-	         return postorder(root);
-	     }
-	     
-	     private String postorder(BSTNode r) {
-	         if (r != null) {
-	             postorder(r.getLeft());             
-	             postorder(r.getRight());
-	             //System.out.print(r.getData() +" ");
-	             output += r.getData();
-	         }
-	         return output;
-	     }     
-	 }
-	 
-	 public String postorder() {
-		 return bst.postorder();
-	 }
+	private BinaryTree tree;
+	private String output;
+	
+	public String postorder() {
+		output = tree.postfix();
+		return output;
+	}
+	
+	public String levelorder() {
+  		output = tree.levelfix();
+  		return output;
+  	}
 	 
 	 public MyTree02(String preorder, String inorder) {
-		  char[] prechar = preorder.toCharArray();
-		  char[] inchar = inorder.toCharArray();
-		
-		 this.bst = new BST();
-		 //int i=0;
-		 String temp = "";
-		 for(int i = 0; i < inchar.length; i++) {
-			 //System.out.print(inchar[i]);
-			 temp += inchar[i];
-			 //this.bst.insert(i); 
-		 }
-		 System.out.println(temp);
-		 /*
 		  if (!valid(preorder, inorder)) {
 			  System.out.println("No valid tree");
 			  return;
 		  }
-		  */
+		  
+		  tree = new BinaryTree(preorder, inorder);
 	 }
 	
 	private boolean valid(String preorder, String inorder) {
-		if (preorder.length() == inorder.length())
+		String t1 = preorder.substring(1, 3);
+		String t2 = inorder.substring(1, 2) + inorder.substring(0, 1);
+		
+		if (t1.equals(t2)) 
 			return true;
-    
+		
 		return false;
 	}
 }
