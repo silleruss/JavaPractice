@@ -6,7 +6,7 @@ public class Randomizer {
 	
 	public static void main(String[] args) {
 		// The target file
-		int numberSize = 10;
+		int numberSize = 3;
 		// create random number max range
 		int MaxNumber = 99;
        File out = new File("number"+ numberSize +".txt");
@@ -19,6 +19,7 @@ public class Randomizer {
           BufferedWriter writer = new BufferedWriter(fw);
           int line;
           Random random = new Random();
+          writer.write(numberSize + "\n");
           while (numberSize > 0) {
               // Randomize an integer and write it to the output file
               line = random.nextInt(MaxNumber);
