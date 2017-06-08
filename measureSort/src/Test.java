@@ -1,9 +1,8 @@
 import java.io.*;
-import java.lang.*;
-import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Test {
-	public static int[] sortNumber;
+	public static int[] insertsortNumber;
 	public static int[] nonHeapNumber;
 	public static int[] initHeapNumber;
 	public static int[] bstNumber;
@@ -20,23 +19,20 @@ public class Test {
 	public static void main(String[] args) {
 		try {
 			/*	read file first line number is arraySize
-			 *	number100.txt -> in 100 numbers in file, first line number is 100
-			 *	number500.txt -> in 500 numbers in file, first line nuber is 500
+			 *	number100.txt -> in 1000 numbers in file, first line number is 1000
+			 *	number500.txt -> in 5000 numbers in file, first line number is 5000
 			 */
-			String fileName = "number10.txt";
+			String fileName = "number10000.txt";
 			int[] number = readFile(fileName);
-			sortNumber = initArray(sortNumber, number);
+			insertsortNumber = initArray(insertsortNumber, number);
 			nonHeapNumber = initArray(nonHeapNumber, number);
+			initHeapNumber = initArray(initHeapNumber, number);
 			bstNumber = initArray(bstNumber, number);
 			splayNumber = initArray(splayNumber, number);
 			mergeNumber = initArray(mergeNumber, number);
-			//insertNumber = new int[number.length];
-			//System.arraycopy(number, 0, insertNumber, 0, number.length);
-			//**********Your sort here************
-			//sort(number);
-			/*
+						
 			long start1 = System.nanoTime();
-			insertionSort(sortNumber);
+			insertionSort(insertsortNumber);
 			long end1 = System.nanoTime();
 			x1 = TimeUnit.MILLISECONDS.convert(end1 - start1, TimeUnit.NANOSECONDS);
 			System.out.println("Insertion sort Time spend in ms: " + x1);
@@ -46,19 +42,49 @@ public class Test {
 			long end2 = System.nanoTime();
 			x2 = TimeUnit.MILLISECONDS.convert(end2 - start2, TimeUnit.NANOSECONDS);
 			System.out.println("nonHeap sort Time spend in ms: " + x2);
-			*/
-			//************************************
 			
+			// initialization in initheap 
+			heapify(initHeapNumber);
+			long start3 = System.nanoTime();
+			initHeapSort(initHeapNumber);
+			long end3 = System.nanoTime();
+			x3 = TimeUnit.MILLISECONDS.convert(end3 - start3, TimeUnit.NANOSECONDS);
+			System.out.println("initHeap sort Time spend in ms: " + x3);
+			
+			long start4 = System.nanoTime();
 			bstSort(bstNumber);
-			//splaytreeSort(splayNumber);
-			nonHeapSort(nonHeapNumber);
+			long end4 = System.nanoTime();
+			x4 = TimeUnit.MILLISECONDS.convert(end4 - start4, TimeUnit.NANOSECONDS);
+			System.out.println("bst sort Time spend in ms: " + x4);
+			
+			long start5 = System.nanoTime();
+			splaytreeSort(splayNumber);
+			long end5 = System.nanoTime();
+			x5 = TimeUnit.MILLISECONDS.convert(end5 - start5, TimeUnit.NANOSECONDS);
+			System.out.println("splaytree sort Time spend in ms: " + x5);
+			
+			long start6 = System.nanoTime();
 			mergeSort(mergeNumber);
+			long end6 = System.nanoTime();
+			x6 = TimeUnit.MILLISECONDS.convert(end6 - start6, TimeUnit.NANOSECONDS);
+			System.out.println("merge sort Time spend in ms: " + x6);
+			
+			/*
+			insertionSort(insertsortNumber);
+			bstSort(bstNumber);
+			nonHeapSort(nonHeapNumber);
+			initHeapSort(nonHeapNumber);
+			splaytreeSort(splayNumber);
+			mergeSort(mergeNumber);
+			 */
+			//Print sorted array 
+			/* 
 			System.out.print("Sorted output: ");
-			for(int i = 0; i < nonHeapNumber.length; i++) {
-				System.out.print(nonHeapNumber[i] + " ");
+			for(int i = 0; i < splayNumber.length; i++) {
+				System.out.print(splayNumber[i] + " ");
 			}
 			System.out.println();
-			
+			*/
 		} catch (Exception e) {
 			System.err.println(e);
 		}
@@ -80,39 +106,27 @@ public class Test {
 		}
 		return list;
 	}
-
-	private static int[] sort(int[] list) {
-		for(int i = 1; i < list.length; i++) {
-			int j = i;
-			while(j > 0 && list[j-1] > list[j]){
-				int temp = list[j];
-				list[j]=list[j-1];
-				list[j-1]=temp;
-				j--;
-			}
-		}
-		return list;
-	}
+	
 	private static int[] insertionSort(int[] list) {
 		for(int i=0; i<list.length; i++) {
-			int key = list[i];
+			int element = list[i];
 			int j = i-1;
-			while((j>-1) && (list[j] > key)) {
+			while((j>-1) && (list[j] > element)) {
 				list[j+1] = list[j];
 				j--;
 			}
 			
-			list[j+1] = key;
+			list[j+1] = element;
 		}
 		return list;
 	}
 	
-	public static void swap(int[] list, int i, int j) {
+	private static void swap(int[] list, int i, int j) {
 		int temp = list[i];
 		list[i] = list[j];
 		list[j] = temp;
 	}
-	public static void heapify(int[] list) {
+	private static void heapify(int[] list) {
 		arrSize = list.length - 1;	
 		for(int i = arrSize / 2; i >= 0; i--) 
 			maxHeap(list, i);
@@ -134,7 +148,7 @@ public class Test {
 		
 		return list;
 	}
-	
+	// input Empty heap and sorting
 	private static int[] nonHeapSort(int[] list) {
 		heapify(list);
 		for(int i = arrSize; i > 0; i--) {
@@ -145,12 +159,17 @@ public class Test {
 		
 		return list;
 	}
-	
+	// without heapify in this method
 	private static int[] initHeapSort(int[] list) {
+		for(int i = arrSize; i > 0; i--) {
+			swap(list, 0, i);
+			arrSize = arrSize - 1;
+			maxHeap(list, 0);
+		}
 		
 		return list;
 	}
-	
+	// Binary Search Tree
 	private static int[] bstSort(int[] list) {
 		//	Construct the BST
 		BST bst = new BST(list[0]);
@@ -161,22 +180,21 @@ public class Test {
 		//System.out.print("\n"); 
 		
 		// Store inorder traversal of BST
-		int i =0;
 		bst.storeSorted(bst.root, list);
 		
-		bst.inOrder(bst.root);
-		System.out.println();
+		//bst.inOrder(bst.root);
 		
 		return list;
 	}
-
+	// Splay Tree Sort
 	private static int[] splaytreeSort(int[] list) {
 		SplayTree spt = new SplayTree();
 		for(int i=0; i<list.length; i++)
 			spt.insert(list[i]);
 		
-		spt.inorder();
-		System.out.println();
+		//spt.inorder();
+		spt.storeSort(list);
+		
 		return list;
 	}
 	private static int[] temp;
@@ -214,7 +232,7 @@ public class Test {
 			i++;
 		}
 	}
-	
+	// Merge sort 
 	private static int[] mergeSort(int[] list) {
 		temp = new int[list.length];
 		mergesort(0, list.length - 1, list);
@@ -242,7 +260,7 @@ class Node {
 
 class BST {
 	public Node root;
-	public int i;
+	public static int i;
 	
 	public BST(int element) {
 		root = new Node(element);
@@ -252,7 +270,7 @@ class BST {
 	public void storeSorted(Node node, int[] list) {
 		if(node != null) {
 			storeSorted(node.left, list);
-			list[i] = node.element;
+			list[i++] = node.element;
 			storeSorted(node.right, list);
 		}
 	}
@@ -268,14 +286,6 @@ class BST {
 		}
 		
 		return node;
-	}
-	
-	public void inOrder(Node node) {
-		if(node != null) {
-			inOrder(node.left);
-			System.out.print(node.element + " ");
-			inOrder(node.right);
-		}
 	}
 }
 
@@ -300,9 +310,11 @@ class SplayNode {
 class SplayTree {
     private SplayNode root;
     private int count = 0;
+    public static int i;
 
     public SplayTree() {
         root = null;
+        i = 0;
     }
 
     public void insert(int element) {
@@ -394,15 +406,16 @@ class SplayTree {
         }
         root = x;
     }
-
-    public void inorder() {
-    	inorder(root);
+    public void storeSort(int[] list) {
+    	storeSorted(root, list);
     }
-    private void inorder(SplayNode node){
-        if (node != null) {
-            inorder(node.left);
-            System.out.print(node.element +" ");
-            inorder(node.right);
-        }
+    
+    private void storeSorted(SplayNode node, int[] list) {
+    	if(node != null) {
+			storeSorted(node.left, list);
+			list[i++] = node.element;
+			storeSorted(node.right, list);
+		}
     }
+    
 }
