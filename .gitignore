@@ -20,8 +20,6 @@ target/
 
 .DS_Store
 *.class
-
-*.java
 *.war
 *.ear
 *.db
