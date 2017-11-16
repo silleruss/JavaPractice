@@ -1,0 +1,9 @@
+200,Nakseongdae,2
+201,Sadang,2
+202,Bangbae,2
+203,Seocho,2
+204,Seoul Nat¡¯l Univ of Education,2
+401,Namtaeryeoung,4
+402,Sadang,4
+403,Isu,4
+701,Naebang,7
