@@ -2,9 +2,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LocalDateTest",
+            "request": "launch",
+            "mainClass": "LocalDateTest",
+            "projectName": "Java8practice_c268f4fb"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Lambda",
             "request": "launch",
-            "mainClass": "Lambda"
+            "mainClass": "LambdaPrac"
         }
     ]
 }
