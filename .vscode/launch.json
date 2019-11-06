@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ThreadTest",
+            "request": "launch",
+            "mainClass": "ThreadTest",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Stream01",
+            "request": "launch",
+            "mainClass": "Stream01",
+            "projectName": "example"
+        }
+    ]
+}
