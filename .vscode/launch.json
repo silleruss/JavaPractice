@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Chapter02",
+            "request": "launch",
+            "mainClass": "prac.Chapter02",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Chapter02",
+            "request": "launch",
+            "mainClass": "Chapter02",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Chapter01",
+            "request": "launch",
+            "mainClass": "Chapter01",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Thread02",
             "request": "launch",
             "mainClass": "Thread02",

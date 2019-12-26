@@ -3,5 +3,6 @@
 	<classpathentry kind="src" path="Bitmap/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="Java8practice"/>
+	<classpathentry kind="src" path="Effective"/>
 	<classpathentry kind="output" path="Bitmap/bin"/>
 </classpath>
