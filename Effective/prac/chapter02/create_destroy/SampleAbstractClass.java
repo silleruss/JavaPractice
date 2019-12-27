@@ -1,4 +1,4 @@
-package prac;
+package prac.chapter02.create_destroy;
 
 abstract class SampleAbstractClass {
     public abstract void getToStringResult();

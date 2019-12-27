@@ -2,6 +2,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - PastaTest",
+            "request": "launch",
+            "mainClass": "prac.chapter02.hierarchicalbuilder.PastaTest",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NutritionFacts",
+            "request": "launch",
+            "mainClass": "prac.chapter02.javabeans.NutritionFacts",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CafeMenu",
+            "request": "launch",
+            "mainClass": "prac.chapter02.CafeMenu",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "prac.Chapter02.Main",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Chapter02",
             "request": "launch",
             "mainClass": "prac.Chapter02",

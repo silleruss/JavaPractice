@@ -1,4 +1,4 @@
-package prac;
+package prac.chapter02.create_destroy;
 
 public class SampleClass {
     private static SampleClass sampleClass;
