@@ -1,7 +1,7 @@
-package prac.chapter02.hierarchicalbuilder;
+package prac.chapter02.item02.hierarchicalbuilder;
 
-import static prac.chapter02.hierarchicalbuilder.Pasta.Sauce.*;
-import static prac.chapter02.hierarchicalbuilder.TomatoPasta.Size.*;
+import static prac.chapter02.item02.hierarchicalbuilder.Pasta.Sauce.*;
+import static prac.chapter02.item02.hierarchicalbuilder.TomatoPasta.Size.*;
 
 public class PastaTest {
     
@@ -9,7 +9,7 @@ public class PastaTest {
         TomatoPasta tomato = new TomatoPasta.Builder(SMALL)
                 .addSauce(TOMATO).build();
         OilPasta oil = new OilPasta.Builder()
-                .addSauce(OIL).noodleInside().build();
+                .addSauce(OIL).meatInside().build();
         
         System.out.println(tomato);
         System.out.println(oil);

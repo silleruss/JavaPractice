@@ -1,4 +1,4 @@
-package prac.chapter02.create_destroy;
+package prac.chapter02.item01.create_destroy;
 
 import java.time.Instant;
 import java.util.*;

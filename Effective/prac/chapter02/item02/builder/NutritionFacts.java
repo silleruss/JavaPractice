@@ -1,4 +1,4 @@
-package prac.chapter02.builder;
+package prac.chapter02.item02.builder;
 
 // Builder Pattern
 public class NutritionFacts {

@@ -1,4 +1,4 @@
-package prac.chapter02.javabeans;
+package prac.chapter02.item02.javabeans;
 
 // JavaBeans Pattern
 public class NutritionFacts {

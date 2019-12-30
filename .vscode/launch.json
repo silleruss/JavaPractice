@@ -2,6 +2,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - UtilityClass",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item04.UtilityClass",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SingleTon",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item03.enumtype.SingleTon",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SingleTon",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item03.staticfactory.SingleTon",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SingleTon",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item03.field.SingleTon",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NutritionFacts",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item02.telescoping.NutritionFacts",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NutritionFacts",
+            "request": "launch",
+            "mainClass": "prac.chapter02.builder.NutritionFacts",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - PastaTest",
             "request": "launch",
             "mainClass": "prac.chapter02.hierarchicalbuilder.PastaTest",

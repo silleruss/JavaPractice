@@ -1,4 +1,4 @@
-package prac.chapter02.telescoping;
+package prac.chapter02.item02.telescoping;
 
 // Telescoping constructor pattern
 public class NutritionFacts {
@@ -33,8 +33,14 @@ public class NutritionFacts {
         this.carbohydrate = carbohydrate;
     }
 
+    public String toString() {
+        return (this.servingSize + ", "+this.servings+", "+this.calories+", "+this.fat+", "+this.sodium+", "+this.carbohydrate);
+    }
+
     public static void main(String[] args) {
         NutritionFacts cocaCola = new NutritionFacts(240, 8, 100, 0, 35, 27);
+
+        System.out.println(cocaCola.toString());
     }
     
 }

@@ -1,4 +1,4 @@
-package prac.chapter02.hierarchicalbuilder;
+package prac.chapter02.item02.hierarchicalbuilder;
 
 
 public class OilPasta extends Pasta {
