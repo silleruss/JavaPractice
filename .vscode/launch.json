@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Stack",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item07.Stack",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Sum",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item06.Sum",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EmailRegex",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item06.EmailRegex",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - UtilityClass",
             "request": "launch",
             "mainClass": "prac.chapter02.item04.UtilityClass",
