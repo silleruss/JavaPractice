@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Copy",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item09.tryfinally.Copy",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Teen",
+            "request": "launch",
+            "mainClass": "prac.chapter02.item08.Teen",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Stack",
             "request": "launch",
             "mainClass": "prac.chapter02.item07.Stack",
