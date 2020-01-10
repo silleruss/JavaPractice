@@ -3,7 +3,7 @@ package prac.chapter02.item08;
 import sun.misc.Cleaner;
 
 public class Room implements AutoCloseable {
-    private final Cleaner cleaner = Cleaner.create(room, state);
+    // private final Cleaner cleaner = Cleaner.create(room, state);
 
     private static class State implements Runnable {
         int num_junk_piles;
@@ -30,7 +30,7 @@ public class Room implements AutoCloseable {
     @Override 
     public void close() {
         // cleanable.clean();
-        cleaner.clean();
+        // cleaner.clean();
     }
 
 }

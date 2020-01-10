@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - FilterMap1",
+            "request": "launch",
+            "mainClass": "filtermap.FilterMap1",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Copy",
             "request": "launch",
             "mainClass": "prac.chapter02.item09.tryfinally.Copy",
