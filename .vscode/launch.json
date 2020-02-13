@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - JustTest",
+            "request": "launch",
+            "mainClass": "JustTest",
+            "projectName": "example"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - FilterMap1",
             "request": "launch",
             "mainClass": "filtermap.FilterMap1",
